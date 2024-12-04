@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+</head>
+<body>
+    <h1>Admin Page</h1>
+    <h2>Used Codes</h2>
+    <ul>
+        {% for code in used_codes %}
+            <li>{{ code }}</li>
+        {% endfor %}
+    </ul>
+    <form method="POST">
+        <input type="text" name="code" maxlength="8" placeholder="Enter code to delete" required />
+        <button type="submit">Delete Code</button>
+    </form>
+</body>
+</html>
