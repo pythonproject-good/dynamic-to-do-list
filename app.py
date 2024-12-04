@@ -5,6 +5,10 @@ from datetime import datetime
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
 
+@app.route('/healthcheck')
+def healthcheck():
+    return "App is alive!", 200
+
 @app.route("/time")
 def get_time():
     """실시간 시간 데이터 제공"""
