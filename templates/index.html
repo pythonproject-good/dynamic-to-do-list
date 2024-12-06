@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic To-Do List</title>
@@ -48,6 +51,12 @@
         li {
             margin: 5px 0;
         }
+
+        /* FullCalendar Style */
+        #calendar {
+            max-width: 900px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
@@ -70,6 +79,9 @@
         <button onclick="addTask()">Add</button>
         <ul id="todo-list"></ul>
     </div>
+
+    <!-- FullCalendar Container -->
+    <div id="calendar"></div>
 
     <script>
         function checkServerStatus() {
@@ -149,6 +161,21 @@
         window.onload = function() {
             checkServerStatus();
             updateBackground();
+
+            // Initialize FullCalendar
+            $('#calendar').fullCalendar({
+                locale: 'ko', // Set to Korean locale
+                events: [
+                    {
+                        title: 'Event 1',
+                        start: '2024-12-06'
+                    },
+                    {
+                        title: 'Event 2',
+                        start: '2024-12-07'
+                    }
+                ]
+            });
         };
     </script>
 </body>
