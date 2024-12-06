@@ -8,6 +8,10 @@ app.secret_key = "your_secret_key"
 # 사용된 코드 저장
 used_codes = set()
 
+@app.route('/healthcheck')
+def healthcheck():
+    return "App is alive!", 200
+
 def validate_code(code):
     """코드 검증 함수"""
     return len(code) == 8 and code[0] == '4' and code[2] == '9' and code[4] == '3' and code[6] == '6'
